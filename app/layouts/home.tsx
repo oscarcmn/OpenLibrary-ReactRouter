@@ -1,7 +1,7 @@
 import type { Route } from "../+types/root";
 
 import { Link, Outlet } from "react-router";
-import TopBar from "~/components/TopBar.tsx/TopBar";
+import TopBar from "../components/TopBar/TopBar";
 
 export function meta({}: Route.MetaArgs) {
   return [
