@@ -67,3 +67,22 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
       return []; 
     }
   }
+
+
+  //esto va a voleo ns si va a funcionar (90% que no)
+  export async function getBookByCover(cover_i: string): Promise<Book | null> {
+    try {
+      const response: Response = await fetch(cover_i);
+  
+      if (!response.ok) {
+        throw new Error(`Failed to fetch Book from Cover: ${URL}`);
+      }
+  
+      const book: Book = await response.json();
+      console.log("Fetched Book from Cover:", book);
+      return book;
+    } catch (error) {
+      console.error("Error fetching Book by Cover:", error);
+      return null;
+    }
+  }
