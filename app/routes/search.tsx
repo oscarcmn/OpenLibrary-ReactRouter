@@ -4,7 +4,7 @@ import {
   getBooksByAuthor,
   getBooksByTitle,
 } from "../services/openlibraryAPI";
-import SearchBox from "../components/SearchBox/SearchBox";
+import SearchBar from "../components/SearchBar/SearchBar";
 import CardList from "../components/CardList/CardList";
 import type { Book } from "../types/interfaces";
 
@@ -49,7 +49,7 @@ function Search() {
         <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-8">
           Search for a Book
         </h3>
-        <SearchBox placeholder="Write a Book name" onSearchChange={setSearch} />
+        <SearchBar placeholder="Write a Book name" onSearchChange={setSearch} />
         <div className="flex justify-center gap-4 mt-4">
           <label>
             <input

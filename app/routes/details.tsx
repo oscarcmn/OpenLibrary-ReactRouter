@@ -7,8 +7,10 @@ import BookDetails from "../components/BookDetails/BookDetails";
 // **Loader function for React Router**
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   try {
-    // where params.name is part of the URL pokemon:name
-    //route("pokemon/:name", "routes/details.tsx"),
+    if (!params.cover_i) {
+      console.error("cover_i is missing in URL params");
+      return { book: null };
+    }
     const book: Book | null = await getBookByCover(params.cover_i);
     return { book: book };
   } catch (error) {
