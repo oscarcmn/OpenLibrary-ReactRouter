@@ -10,5 +10,6 @@ import {
       index("routes/welcome.tsx"), 
       route("about", "routes/about.tsx"), 
       route("search", "routes/search.tsx"), 
+      route("book/:name", "routes/details.tsx"),
     ]),
   ] satisfies RouteConfig;
