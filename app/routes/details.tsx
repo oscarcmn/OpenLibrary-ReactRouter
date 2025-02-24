@@ -1,6 +1,6 @@
 import { useParams, useLoaderData } from "react-router";
 import type { Book } from "../types/interfaces";
-import { getBookByCover } from "../services/openlibraryAPI";
+import { getBookByKey } from "../services/openlibraryAPI";
 import type { Route } from "../+types/root";
 import BookDetails from "../components/BookDetails/BookDetails";
 
@@ -11,7 +11,7 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs) {
       console.error("cover_i is missing in URL params");
       return { book: null };
     }
-    const book: Book | null = await getBookByCover(params.cover_i);
+    const book: Book | null = await getBookByKey(params.key);
     return { book: book };
   } catch (error) {
     console.error("Error fetching book:", error);

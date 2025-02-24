@@ -10,6 +10,6 @@ import {
       index("routes/welcome.tsx"), 
       route("about", "routes/about.tsx"), 
       route("search", "routes/search.tsx"), 
-      route("book/:name", "routes/details.tsx"),
+      route("book/:cover_i", "routes/details.tsx"),
     ]),
   ] satisfies RouteConfig;

@@ -15,7 +15,7 @@ import type {
 export async function getBooksByAnything(query: string): Promise<Book[]> {
     const formattedQuery = query.replace(/ /g, "+");
     try {
-      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedQuery}&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
+      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedQuery}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
   
       if (!response.ok) {
         throw new Error(
@@ -36,7 +36,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
   export async function getBooksByTitle(title: string): Promise<Book[]> {
     const formattedTitle = title.replace(/ /g, "+");
     try {
-      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedTitle}&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
+      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedTitle}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
   
       if (!response.ok) {
         throw new Error(
@@ -57,7 +57,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
   export async function getBooksByAuthor(author: string): Promise<Book[]> {
     const formattedAuthor = author.replace(/ /g, "+");
     try {
-      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedAuthor}&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
+      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedAuthor}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
   
       if (!response.ok) {
         throw new Error(
@@ -75,10 +75,10 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
   }
 
 
-  //esto va a voleo ns si va a funcionar (90% que no)
-  export async function getBookByCover(cover_i: string): Promise<Book | null> {
+
+  export async function getBookBykey(key: string): Promise<Book | null> {
     try {
-      const response: Response = await fetch(cover_i);
+      const response: Response = await fetch(`${URL_API}${key}.json?&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
   
       if (!response.ok) {
         throw new Error(`Failed to fetch Book from Cover: ${URL}`);
