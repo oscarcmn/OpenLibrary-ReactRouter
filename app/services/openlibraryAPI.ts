@@ -78,7 +78,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
 
   export async function getBookBykey(key: string): Promise<Book | null> {
     try {
-      const response: Response = await fetch(`${URL_API}${key}.json?&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
+      const response: Response = await fetch(`${URL_API}${key}.json?`);
   
       if (!response.ok) {
         throw new Error(`Failed to fetch Book from Cover: ${URL}`);

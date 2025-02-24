@@ -5,7 +5,7 @@ const private_API = "http://localhost:3000";
 GET https://openlibrary.org/search.json?title=the+way+of+kings&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
 
 ###
-GET https://openlibrary.org/search.json?author=osamu+dazai&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
+GET https://openlibrary.org/search.json?author=osamu+dazai&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
 
 ###
 GET https://openlibrary.org/search.json?title=way&author=way&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
@@ -18,4 +18,4 @@ GET http://localhost:3000/books
 GET https://openlibrary.org/search.json?title=way;
 
 ###
-GET https://openlibrary.org/works/OL15358691W.json?fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
+GET https://openlibrary.org/works/OL15358691W.json?
