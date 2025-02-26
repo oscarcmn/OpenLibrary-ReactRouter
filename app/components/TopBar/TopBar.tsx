@@ -16,10 +16,14 @@ function TopBar() {
       {/* Navigation Links */}
       <ul className="flex space-x-6">
         <li>
-          <Link to="search"></Link>
+          <Link to="search">
+            <IconButton variant="search" />
+          </Link>
         </li>
         <li>
-          <Link to="about"></Link>
+          <Link to="about">
+            <IconButton variant="about" />
+          </Link>
         </li>
       </ul>
     </nav>
