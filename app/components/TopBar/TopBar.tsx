@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import IconButton from "../IconButton/IconButton";
+//import IconButton from "../IconButton/IconButton";
 
 function TopBar() {
   return (
@@ -16,14 +16,10 @@ function TopBar() {
       {/* Navigation Links */}
       <ul className="flex space-x-6">
         <li>
-          <Link to="search">
-            <IconButton variant="search" />
-          </Link>
+          <Link to="search"></Link>
         </li>
         <li>
-          <Link to="about">
-            <IconButton variant="about" />
-          </Link>
+          <Link to="about"></Link>
         </li>
       </ul>
     </nav>

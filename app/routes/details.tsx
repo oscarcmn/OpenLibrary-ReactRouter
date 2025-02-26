@@ -7,7 +7,7 @@ import BookDetails from "../components/BookDetails/BookDetails";
 // **Loader function for React Router**
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   try {
-    if (!params.cover_i) {
+    if (!params.key) {
       console.error("cover_i is missing in URL params");
       return { book: null };
     }

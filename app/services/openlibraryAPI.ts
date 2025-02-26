@@ -76,7 +76,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
 
 
 
-  export async function getBookBykey(key: string): Promise<Book | null> {
+  export async function getBookByKey(key: string): Promise<Book | null> {
     try {
       const response: Response = await fetch(`${URL_API}${key}.json?`);
   
