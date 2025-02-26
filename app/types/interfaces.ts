@@ -17,10 +17,10 @@ export interface Book {
   
 
   //esto es pa cuando clickas en un libro y te lleva a la pagina de detalles
-  export interface BookDetails {
+  export interface BookDetailsInterface {
     key: string;
     title: string;
-    description?: string | { value: string };
+    description?: string ;
     subject_places?: string[];
     subjects?: string[];
     subject_people?: string[];

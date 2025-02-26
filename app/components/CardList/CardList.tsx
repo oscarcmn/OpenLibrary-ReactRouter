@@ -15,7 +15,7 @@ const CardList = ({ books = [] }: CardListProps) => {
       ) : (
         books.map((book: Book) => (
           <Link
-            to={`/book/${book.key}`}
+            to={`/book/${encodeURIComponent(book.key)}`}
             key={book.key}
             className="block transform transition duration-300 hover:scale-105"
           >

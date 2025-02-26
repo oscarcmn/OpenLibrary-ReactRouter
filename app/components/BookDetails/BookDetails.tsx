@@ -1,15 +1,20 @@
 import React from "react";
-import type { Book } from "../../types/interfaces";
+import type { BookDetailsInterface } from "../../types/interfaces";
 
 interface BookDetailsProps {
-  book: Book;
+  bookdetails: BookDetailsInterface;
 }
 
-function BookDetails({ book }: BookDetailsProps) {
+function BookDetails({ bookdetails }: BookDetailsProps) {
   return (
     <div>
-      <h1>{book.title}</h1>
-      <p>{book.author_name}</p>
+      <h1>{bookdetails.title}</h1>
+      <p>{bookdetails.covers}</p>
+      <p>{bookdetails.description}</p>
+      <p>{bookdetails.subject_places}</p>
+      <p>{bookdetails.subjects}</p>
+      <p>{bookdetails.subject_people}</p>
+      <p>{bookdetails.first_publish_date}</p>
     </div>
   );
 }

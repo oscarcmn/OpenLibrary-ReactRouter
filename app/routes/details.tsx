@@ -1,5 +1,5 @@
 import { useParams, useLoaderData } from "react-router";
-import type { Book } from "../types/interfaces";
+import type { BookDetailsInterface } from "../types/interfaces";
 import { getBookByKey } from "../services/openlibraryAPI";
 import type { Route } from "../+types/root";
 import BookDetails from "../components/BookDetails/BookDetails";
@@ -11,11 +11,15 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs) {
       console.error("key is missing in URL params");
       return { book: null };
     }
-    const book: Book | null = await getBookByKey(params.key);
-    return { book: book };
+    const decodedKey = decodeURIComponent(params.key); // Decodifica la key
+    console.log("Fetching book with key:", decodedKey); // Depuración
+    const bookdetails: BookDetailsInterface | null = await getBookByKey(
+      decodedKey
+    );
+    return { bookdetails: bookdetails };
   } catch (error) {
     console.error("Error fetching book:", error);
-    return { book: null };
+    return { bookdetails: null };
   }
 }
 
@@ -33,10 +37,12 @@ export function HydrateFallback() {
 
 function Details() {
   // Obtener datos del loader
-  const { book } = useLoaderData() as { book: Book | null };
+  const { bookdetails } = useLoaderData() as {
+    bookdetails: BookDetailsInterface | null;
+  };
 
   // if there is no pokemon show an error message
-  if (!book) {
+  if (!bookdetails) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen text-red-600">
         <h2 className="text-2xl font-bold">❌ Book Not Found</h2>
@@ -44,7 +50,7 @@ function Details() {
     );
   }
 
-  return <BookDetails book={book} />;
+  return <BookDetails bookdetails={bookdetails} />;
 }
 
 export default Details;
