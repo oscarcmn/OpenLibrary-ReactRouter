@@ -7,7 +7,7 @@ const URL_API = "https://openlibrary.org";
 
 import type {
     Book,
-    SearchResponse
+    BookSearchResponse
 } from "../types/interfaces";
 
 
@@ -23,7 +23,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
         );
       }
   
-      const data: SearchResponse = await response.json();
+      const data: BookSearchResponse = await response.json();
       console.log("Fetched Books by anything list:", data.docs);
       return data.docs;
     } catch (error) {
@@ -44,7 +44,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
         );
       }
   
-      const data: SearchResponse = await response.json();
+      const data: BookSearchResponse = await response.json();
       console.log("Fetched Books by title list:", data.docs);
       return data.docs;
     } catch (error) {
@@ -65,7 +65,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
         );
       }
   
-      const data: SearchResponse = await response.json();
+      const data: BookSearchResponse = await response.json();
       console.log("Fetched Books By Author list:", data.docs);
       return data.docs;
     } catch (error) {

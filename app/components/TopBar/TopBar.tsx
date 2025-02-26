@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import IconButton from "../IconButton/IconButton";
 
 function TopBar() {
@@ -25,9 +24,6 @@ function TopBar() {
           <Link to="about">
             <IconButton variant="about" />
           </Link>
-        </li>
-        <li>
-          <ThemeToggle />
         </li>
       </ul>
     </nav>
