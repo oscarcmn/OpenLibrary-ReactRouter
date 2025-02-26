@@ -46,9 +46,6 @@ function Card({ book }: CardProps) {
                           book.number_of_pages_median || "N/A"
                         }</p>
                     </div>
-                     <button data-id="{
-                       book.id
-                     }" className="btn btn-danger btn-sm del-btn">Delete</button>
                 </div>
             </div>
   );
