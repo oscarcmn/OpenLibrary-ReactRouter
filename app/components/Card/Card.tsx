@@ -1,13 +1,29 @@
 import type { Book } from "../../types/interfaces";
+import BookDetails from "../BookDetails/BookDetails";
 
 interface CardProps {
   book: Book;
+  //a partir de aquí intento yo, no se supone que necesito esto?? por qué no me lo reconoce??¿?¿¿??
+  /*publish_year: Year;
+  title: Title;
+  author_name: Author;
+  ratings_average: Ratings;
+  number_of_pages_median: Pages;*/
+  /*key: string;
+    title: string;
+    description?: string | { value: string };
+    subject_places?: string[];
+    subjects?: string[];
+    subject_people?: string[];
+    covers?: number[];
+    first_publish_date?: string;*/
+  
 }
 
 
 function Card({ book }: CardProps) {
   return (
-    <div className="card mx-auto font" style={{width: "18rem"}}>
+    <div className="card mx-auto font bg-verde-nectar p-6 rounded-lg shadow-lg" style={{width: "18rem"}}>
 
       <img src={`https://covers.openlibrary.org/b/id/${book.cover_i || ""}.jpg`}
             className="img-top"
@@ -46,6 +62,7 @@ function Card({ book }: CardProps) {
                           book.number_of_pages_median || "N/A"
                         }</p>
                     </div>
+                    
                 </div>
             </div>
   );
