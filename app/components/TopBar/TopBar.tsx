@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-//import IconButton from "../IconButton/IconButton";
+import IconButton from "../IconButton/IconButton";
 
 function TopBar() {
   return (

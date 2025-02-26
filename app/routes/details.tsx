@@ -8,7 +8,7 @@ import BookDetails from "../components/BookDetails/BookDetails";
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   try {
     if (!params.key) {
-      console.error("cover_i is missing in URL params");
+      console.error("key is missing in URL params");
       return { book: null };
     }
     const book: Book | null = await getBookByKey(params.key);

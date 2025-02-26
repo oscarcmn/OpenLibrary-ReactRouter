@@ -5,13 +5,13 @@ interface BookDetailsProps {
   book: Book;
 }
 
-const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
+function BookDetails({ book }: BookDetailsProps) {
   return (
     <div>
       <h1>{book.title}</h1>
       <p>{book.author_name}</p>
     </div>
   );
-};
+}
 
 export default BookDetails;
