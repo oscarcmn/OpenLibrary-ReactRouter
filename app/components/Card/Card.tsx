@@ -3,37 +3,24 @@ import BookDetails from "../BookDetails/BookDetails";
 
 interface CardProps {
   book: Book;
-  //a partir de aquí intento yo, no se supone que necesito esto?? por qué no me lo reconoce??¿?¿¿??
-  /*publish_year: Year;
-  title: Title;
-  author_name: Author;
-  ratings_average: Ratings;
-  number_of_pages_median: Pages;*/
-  /*key: string;
-    title: string;
-    description?: string | { value: string };
-    subject_places?: string[];
-    subjects?: string[];
-    subject_people?: string[];
-    covers?: number[];
-    first_publish_date?: string;*/
+  onAddToFavorites: (book: Book) => void; // Función para añadir a favoritos
 }
 
-function Card({ book }: CardProps) {
+function Card({ book, onAddToFavorites }: CardProps) {
   return (
     <div
-      className="card mx-auto font bg-verde-nectar p-0 rounded-lg shadow-lg h-180"
+      className="card mx-auto font bg-soft-yellow p-6 rounded-lg shadow-lg z-10"
       style={{ width: "18rem" }}
     >
       <img
         src={`https://covers.openlibrary.org/b/id/${book.cover_i || ""}.jpg`}
-        className="img-top w-100 h-100"
+        className="img-top w-40 h-40 object-contain"
         alt="Book cover"
       />
 
       <div className="card-body">
         <div className="d-flex justify-content-between">
-          <h5 className="title">{book.title || "Unknown Title"}</h5>
+          <h5 className="title font-bold">{book.title || "Unknown Title"}</h5>
           <div>
             <p className="year">
               {book.publish_year ? book.publish_year[0] : "N/A"}
@@ -56,10 +43,16 @@ function Card({ book }: CardProps) {
         </div>
         <div className="d-flex">
           <p className="property">Number of Pages</p>
-          <p className="dataproperty">
-            ${book.number_of_pages_median || "N/A"}
-          </p>
+          <p className="dataproperty">{book.number_of_pages_median || "N/A"}</p>
         </div>
+
+        {/* Botón para añadir a favoritos */}
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+          onClick={() => onAddToFavorites(book)}
+        >
+          Add to Favorites
+        </button>
       </div>
     </div>
   );

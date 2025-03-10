@@ -14,6 +14,19 @@ function Search() {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
+  // Función para añadir un libro a favoritos
+  const addToFavorites = (book: Book) => {
+    const storedFavorites = localStorage.getItem("favorites");
+    const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+    if (!favorites.some((fav: Book) => fav.key === book.key)) {
+      favorites.push(book);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      alert("Book added to favorites!");
+    } else {
+      alert("Book is already in favorites!");
+    }
+  };
+
   useEffect(() => {
     if (search.trim() === "") {
       setBooks([]);
@@ -44,8 +57,8 @@ function Search() {
   }, [search, filter]);
 
   return (
-    <div className="flex flex-col items-center  text-white transition-colors duration-500">
-      <header className="bg-white dark:bg-gray-700 text-gray-900  rounded-2xl  text-center">
+    <div className="flex flex-col items-center text-white transition-colors duration-500">
+      <header className="bg-white dark:bg-gray-700 text-gray-900 rounded-2xl text-center">
         <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-8">
           Search for a Book
         </h3>
@@ -87,7 +100,7 @@ function Search() {
         ) : books.length === 0 ? (
           <p className="text-gray-500 mt-4">No books found.</p>
         ) : (
-          <CardList books={books} />
+          <CardList books={books} onAddToFavorites={addToFavorites} />
         )}
       </header>
     </div>

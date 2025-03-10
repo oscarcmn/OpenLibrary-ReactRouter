@@ -4,9 +4,10 @@ import type { Book } from "~/types/interfaces";
 
 interface CardListProps {
   books: Book[];
+  onAddToFavorites: (book: Book) => void;
 }
 
-const CardList = ({ books = [] }: CardListProps) => {
+const CardList = ({ books = [], onAddToFavorites }: CardListProps) => {
   // Default to an empty array if undefined
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
@@ -19,7 +20,7 @@ const CardList = ({ books = [] }: CardListProps) => {
             key={book.key}
             className="block transform transition duration-300 hover:scale-105"
           >
-            <Card book={book} />
+            <Card book={book} onAddToFavorites={onAddToFavorites} />
           </Link>
         ))
       )}
