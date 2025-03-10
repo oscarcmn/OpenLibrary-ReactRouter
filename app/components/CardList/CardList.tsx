@@ -9,7 +9,7 @@ interface CardListProps {
 const CardList = ({ books = [] }: CardListProps) => {
   // Default to an empty array if undefined
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
       {books.length === 0 ? ( // Show a message if no Pokémon are found
         <p className="text-white text-center col-span-full">No book found.</p>
       ) : (

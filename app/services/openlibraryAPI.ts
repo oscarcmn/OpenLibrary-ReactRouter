@@ -15,7 +15,7 @@ import type {
 export async function getBooksByAnything(query: string): Promise<Book[]> {
     const formattedQuery = query.replace(/ /g, "+");
     try {
-      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedQuery}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
+      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedQuery}&author=${formattedQuery}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
   
       if (!response.ok) {
         throw new Error(
@@ -57,7 +57,7 @@ export async function getBooksByAnything(query: string): Promise<Book[]> {
   export async function getBooksByAuthor(author: string): Promise<Book[]> {
     const formattedAuthor = author.replace(/ /g, "+");
     try {
-      const response: Response = await fetch(`${URL_API}/search.json?title=${formattedAuthor}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
+      const response: Response = await fetch(`${URL_API}/search.json?author=${formattedAuthor}&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng`);
   
       if (!response.ok) {
         throw new Error(
