@@ -15,7 +15,8 @@ const SearchBar = ({ placeholder, onSearchChange }: SearchBoxProps) => {
       type="search"
       placeholder={placeholder}
       onChange={onChange}
-      className="w-full max-w-sm px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+      className="px-30 py-2  bg-[var(--color-dark-yellow)]  rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-bg-[var(--color-soft-yellow)]-500 focus:border-[var(--color-dark-yellow)]-500 transition duration-200"
+      //className="w-full max-w-sm px-4 py-2  bg-[var(--color-dark-yellow)]  rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-[var(--color-dark-yellow)]-500 transition duration-200"
     />
   );
 };
