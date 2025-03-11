@@ -2,7 +2,7 @@ import type { Book } from "../../types/interfaces";
 import BookDetails from "../BookDetails/BookDetails";
 
 import heartRed from "heart-red.svg"; // Asegúrate de importar la imagen
-import {useState} from "react";
+import { useState } from "react";
 
 interface CardProps {
   book: Book;
@@ -35,18 +35,18 @@ function Card({ book, onAddToFavorites }: CardProps) {
         className="absolute top-2 right-2 bg-transparent border-none p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
         onClick={handleFavoriteClick}
       >
-        <img
-          src={heartRed}
-          alt="Add to Favorites"
-          className="w-8 h-8"
-        />
+        <img src={heartRed} alt="Add to Favorites" className="w-8 h-8" />
       </button>
 
       <div className="card-body text-black">
         <div className="flex justify-between items-center mb-4">
-          <h5 className="title text-xl font-bold">{book.title || "Unknown Title"}</h5>
+          <h5 className="title text-xl font-bold">
+            {book.title || "Unknown Title"}
+          </h5>
           <div>
-            <p className="year">{book.publish_year ? book.publish_year[0] : "N/A"}</p>
+            <p className="year">
+              {book.publish_year ? book.publish_year[0] : "N/A"}
+            </p>
           </div>
         </div>
         <div className="flex justify-between items-center mb-2">
@@ -67,16 +67,6 @@ function Card({ book, onAddToFavorites }: CardProps) {
         </div>
 
         {/* Botón para añadir a favoritos */}
-        <button
-          className="bg-transparent border-none p-0 w-auto opacity-100 transition-opacity duration-200 hover:opacity-80"
-          onClick={handleFavoriteClick}
-        >
-          <img
-            src={ heartRed } // Cambia la imagen
-            alt="Add to Favorites"
-            className="w-8 h-8"
-          />
-        </button>
       </div>
     </div>
   );
