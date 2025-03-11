@@ -26,12 +26,12 @@ function Favorites() {
       {favorites.length === 0 ? (
         <p>No favorite books yet.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid text-black grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {favorites.map((book) => (
-            <div key={book.key}>
+            <div key={book.key} className="group relative flex flex-col items-center">
               <Card book={book} onAddToFavorites={() => {}} />
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded mt-2"
+                className="bg-red-500 text-white px-4 py-2 rounded mt-2 w-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                 onClick={() => removeFromFavorites(book)}
               >
                 Remove from Favorites
