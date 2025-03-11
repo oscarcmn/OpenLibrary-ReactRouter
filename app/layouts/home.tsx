@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <TopBar />
       {/* Page Content */}
-      <div className="pt-24">
+      <div className="pt-24 bg-white min-h-auto">
         {" "}
         {/* Add padding to prevent content from being hidden behind the navbar */}
         {/* Render the child route */}
