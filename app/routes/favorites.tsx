@@ -20,7 +20,7 @@ function Favorites() {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
-  return (
+  /*return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Favorite Books</h1>
       {favorites.length === 0 ? (
@@ -41,7 +41,7 @@ function Favorites() {
         </div>
       )}
     </div>
-  );
+  );*/
 }
 
 export default Favorites;

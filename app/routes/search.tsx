@@ -14,19 +14,6 @@ function Search() {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Función para añadir un libro a favoritos
-  const addToFavorites = (book: Book) => {
-    const storedFavorites = localStorage.getItem("favorites");
-    const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
-    if (!favorites.some((fav: Book) => fav.key === book.key)) {
-      favorites.push(book);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-      alert("Book added to favorites!");
-    } else {
-      alert("Book is already in favorites!");
-    }
-  };
-
   useEffect(() => {
     if (search.trim() === "") {
       setBooks([]);
@@ -57,9 +44,9 @@ function Search() {
   }, [search, filter]);
 
   return (
-    <div className="flex flex-col items-center text-white transition-colors duration-500">
-      <header className="bg-white dark:bg-gray-700 text-gray-900 rounded-2xl text-center">
-        <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-8">
+    <div className="flex flex-col items-center justify-center text-black transition-colors duration-500">
+      <div className="  text-black-900 rounded-2xl p-8 w-[90%] text-center">
+        <h3 className="text-2xl font-bold text-black-600 dark:text-black-400 mb-8">
           Search for a Book
         </h3>
         <SearchBar placeholder="Write a Book name" onSearchChange={setSearch} />
@@ -70,7 +57,7 @@ function Search() {
               name="filter"
               value="all"
               checked={filter === "all"}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={() => setFilter("all")}
             />
             All
           </label>
@@ -80,7 +67,7 @@ function Search() {
               name="filter"
               value="author"
               checked={filter === "author"}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={() => setFilter("author")}
             />
             Author
           </label>
@@ -90,7 +77,7 @@ function Search() {
               name="filter"
               value="title"
               checked={filter === "title"}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={() => setFilter("title")}
             />
             Title
           </label>
@@ -100,9 +87,9 @@ function Search() {
         ) : books.length === 0 ? (
           <p className="text-gray-500 mt-4">No books found.</p>
         ) : (
-          <CardList books={books} onAddToFavorites={addToFavorites} />
+          <CardList books={books} />
         )}
-      </header>
+      </div>
     </div>
   );
 }
