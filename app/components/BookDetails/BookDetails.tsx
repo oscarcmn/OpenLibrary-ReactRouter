@@ -10,13 +10,12 @@ function BookDetails({ bookdetails }: BookDetailsProps) {
   return (
     <div className="text-black">
       <h1>{bookdetails.title}</h1>
-      <img src="" alt="" />
-      <p>{covers[0] ? covers[0].toString() : "No hay covers disponibles"}</p>
+      <img
+        src={`https://covers.openlibrary.org/b/id/${covers[0] || ""}.jpg`}
+        className="img-top w-40 h-40 object-contain"
+        alt="Book cover"
+      />
       <p>{bookdetails.description}</p>
-      <p>{bookdetails.subject_places}</p>
-      <p>{bookdetails.subjects}</p>
-      <p>{bookdetails.subject_people}</p>
-      <p>{bookdetails.first_publish_date}</p>
     </div>
   );
 }
