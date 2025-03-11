@@ -1,57 +1,81 @@
 import type { Book } from "../../types/interfaces";
 import BookDetails from "../BookDetails/BookDetails";
 
+import heartRed from "heart-red.svg"; // Asegúrate de importar la imagen
+import {useState} from "react";
+
 interface CardProps {
   book: Book;
   onAddToFavorites: (book: Book) => void; // Función para añadir a favoritos
 }
 
 function Card({ book, onAddToFavorites }: CardProps) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+    onAddToFavorites(book);
+  };
+
   return (
     <div
-      className="card mx-auto font bg-soft-yellow p-6 rounded-lg shadow-lg z-10"
+      className="card mx-auto font bg-soft-yellow p-6 rounded-lg shadow-lg z-10 text-black group relative"
       style={{ width: "18rem" }}
     >
-      <img
-        src={`https://covers.openlibrary.org/b/id/${book.cover_i || ""}.jpg`}
-        className="img-top w-40 h-40 object-contain"
-        alt="Book cover"
-      />
+      <div className="flex justify-center items-center mb-4">
+        <img
+          src={`https://covers.openlibrary.org/b/id/${book.cover_i || ""}.jpg`}
+          className="img-top w-40 h-40 object-contain"
+          alt="Book cover"
+        />
+      </div>
 
-      <div className="card-body">
-        <div className="d-flex justify-content-between">
-          <h5 className="title font-bold">{book.title || "Unknown Title"}</h5>
+      {/* Botón para añadir a favoritos */}
+      <button
+        className="absolute top-2 right-2 bg-transparent border-none p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        onClick={handleFavoriteClick}
+      >
+        <img
+          src={heartRed}
+          alt="Add to Favorites"
+          className="w-8 h-8"
+        />
+      </button>
+
+      <div className="card-body text-black">
+        <div className="flex justify-between items-center mb-4">
+          <h5 className="title text-xl font-bold">{book.title || "Unknown Title"}</h5>
           <div>
-            <p className="year">
-              {book.publish_year ? book.publish_year[0] : "N/A"}
-            </p>
+            <p className="year">{book.publish_year ? book.publish_year[0] : "N/A"}</p>
           </div>
         </div>
-        <div className="d-flex">
-          <p className="property">Author</p>
-          <p className="dataproperty">
-            {book.author_name ? book.author_name : "Unknown"}
-          </p>
+        <div className="flex justify-between items-center mb-2">
+          <p className="font-medium">Author:</p>
+          <p>{book.author_name ? book.author_name : "Unknown"}</p>
         </div>
-        <div className="d-flex">
-          <p className="property">Avg Rating</p>
-          <p className="dataproperty">{book.ratings_average || "N/A"}</p>
+        <div className="flex justify-between items-center mb-2">
+          <p className="font-medium">Avg Rating:</p>
+          <p>{book.ratings_average || "N/A"}</p>
         </div>
-        <div className="d-flex">
-          <p className="property">Number of Ratings</p>
-          <p className="dataproperty">{book.ratings_count || "N/A"}</p>
+        <div className="flex justify-between items-center mb-2">
+          <p className="font-medium">Number of Ratings:</p>
+          <p>{book.ratings_count || "N/A"}</p>
         </div>
-        <div className="d-flex">
-          <p className="property">Number of Pages</p>
-          <p className="dataproperty">{book.number_of_pages_median || "N/A"}</p>
+        <div className="flex justify-between items-center mb-4">
+          <p className="font-medium">Number of Pages:</p>
+          <p>{book.number_of_pages_median || "N/A"}</p>
         </div>
 
         {/* Botón para añadir a favoritos */}
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
-          onClick={() => onAddToFavorites(book)}
+          className="bg-transparent border-none p-0 w-auto opacity-100 transition-opacity duration-200 hover:opacity-80"
+          onClick={handleFavoriteClick}
         >
-          Add to Favorites
+          <img
+            src={ heartRed } // Cambia la imagen
+            alt="Add to Favorites"
+            className="w-8 h-8"
+          />
         </button>
       </div>
     </div>
