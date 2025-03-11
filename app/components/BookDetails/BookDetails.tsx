@@ -8,7 +8,7 @@ interface BookDetailsProps {
 function BookDetails({ bookdetails }: BookDetailsProps) {
   const covers = bookdetails.covers || [];
   return (
-    <div>
+    <div className="text-black">
       <h1>{bookdetails.title}</h1>
       <img src="" alt="" />
       <p>{covers[0] ? covers[0].toString() : "No hay covers disponibles"}</p>
