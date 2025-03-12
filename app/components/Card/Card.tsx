@@ -65,8 +65,6 @@ function Card({ book, onAddToFavorites }: CardProps) {
           <p className="font-medium">Number of Pages:</p>
           <p>{book.number_of_pages_median || "N/A"}</p>
         </div>
-
-        {/* Botón para añadir a favoritos */}
       </div>
     </div>
   );
