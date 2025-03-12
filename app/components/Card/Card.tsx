@@ -19,7 +19,7 @@ function Card({ book, onAddToFavorites }: CardProps) {
 
   return (
     <div
-      className="card mx-auto font bg-soft-yellow p-6 rounded-lg shadow-lg z-10 text-black group relative"
+      className="card mx-auto font bg-soft-yellow p-6 rounded-lg shadow-lg z-50 text-black group relative"
       style={{ width: "18rem" }}
     >
       <div className="flex justify-center items-center mb-4">
@@ -33,13 +33,11 @@ function Card({ book, onAddToFavorites }: CardProps) {
       {/* Botón para añadir a favoritos */}
       <button
         className="absolute top-2 right-2 bg-transparent border-none p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-        onClick = {
-          (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            handleFavoriteClick();
-          }
-        }
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          handleFavoriteClick();
+        }}
       >
         <img src={heartRed} alt="Add to Favorites" className="w-8 h-8" />
       </button>
