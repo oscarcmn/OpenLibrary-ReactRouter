@@ -16,7 +16,7 @@ OpenLibrary is a web application designed to help users search, browse, and expl
 - Adding books to a favorites list with local storage.
 
 ## Figma Prototype
-You can view the prototype here: [Figma Prototype](#)
+You can view the prototype here: [Figma Prototype](https://www.figma.com/design/H0OGlq4c4ZblKKfvmPL3Dq/Final-Project-Router?node-id=0-1&p=f&t=SnHujldXlB1dFJsn-0)
 
 ## Technologies Used
 - **React** – Frontend library for building the user interface.
@@ -28,7 +28,7 @@ You can view the prototype here: [Figma Prototype](#)
 ## Installation Instructions
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/OpenLibrary.git
+   git clone https://github.com/oscarcmn/OpenLibrary-ReactRouter.git
    cd OpenLibrary
    ```
 2. **Install dependencies**
