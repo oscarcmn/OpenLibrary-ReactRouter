@@ -33,7 +33,13 @@ function Card({ book, onAddToFavorites }: CardProps) {
       {/* Botón para añadir a favoritos */}
       <button
         className="absolute top-2 right-2 bg-transparent border-none p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-        onClick={handleFavoriteClick}
+        onClick = {
+          (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            handleFavoriteClick();
+          }
+        }
       >
         <img src={heartRed} alt="Add to Favorites" className="w-8 h-8" />
       </button>
