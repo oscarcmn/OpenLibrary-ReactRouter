@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 
+import bookielogo from "bookie-logo.png";
 function TopBar() {
   return (
     <div className="container z-100">
@@ -9,7 +10,7 @@ function TopBar() {
           to=""
           className="flex items-center gap-2 text-2xl font-bold tracking-wide hover:text-green-700 transition"
         >
-          <img src="/bookie-logo.png" alt="Bookie Logo" className="w-18" />
+          <img src={bookielogo} alt="Bookie Logo" className="w-18" />
         </Link>
 
         {}

@@ -14,6 +14,7 @@
 html,
 body {
   font-family: 'Labrada';
+  height: 1000px;
 
   @apply bg-white dark:bg-gray-950;
 

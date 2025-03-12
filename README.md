@@ -13,6 +13,7 @@ OpenLibrary is a web application designed to help users search, browse, and expl
 - Navigation using React Router for a single-page application experience.
 - Responsive design for mobile and desktop users.
 - Integration with the Open Library API for book data.
+- Adding books to a favorites list with local storage.
 
 ## Figma Prototype
 You can view the prototype here: [Figma Prototype](#)
@@ -23,7 +24,6 @@ You can view the prototype here: [Figma Prototype](#)
 - **Vite** – Fast development and build tool.
 - **TypeScript** – Enhances the project with static typing.
 - **Open Library API** – Fetches book data.
-- **Docker** – For containerized deployment.
 
 ## Installation Instructions
 1. **Clone the repository**
@@ -44,6 +44,9 @@ You can view the prototype here: [Figma Prototype](#)
 
 ## Usage Guide
 - Use the search bar to find books by title, author, or subject.
+- Hover over the card and click on the heart button to add a book to favorites.
+- Click on the Favorites option in the navbar so you can view your favorited books.
+- If you want to remove some book from favorites, you just need to hover over the card of the book and click on the Remove from Favorites button. 
 - Click on a book to view more details.
 - Navigate using the header links or browser history.
 
