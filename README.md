@@ -51,18 +51,32 @@ You can view the prototype here: [Figma Prototype](#)
 This project uses the [Open Library API](https://openlibrary.org/developers/api).
 ### Example API Request:
 ```sh
-GET https://openlibrary.org/search.json?q=harry+potter
+GET https://openlibrary.org/search.json?title=the+way+of+kings&fields=key,title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
 ```
 ### Response Example:
 ```json
 {
-  "docs": [
-    {
-      "title": "Harry Potter and the Sorcerer's Stone",
-      "author_name": ["J.K. Rowling"],
-      "cover_i": 8095562
-    }
-  ]
+  {
+      "author_name": [
+        "Brandon Sanderson"
+      ],
+      "cover_i": 14658316,
+      "key": "/works/OL15358691W",
+      "number_of_pages_median": 1008,
+      "publish_year": [
+        2019,
+        2020,
+        2024,
+        2010,
+        2011,
+        2012,
+        2014,
+        2015
+      ],
+      "title": "The Way of Kings",
+      "ratings_average": 4.5755396,
+      "ratings_count": 139
+    },
 }
 ```
 
@@ -73,5 +87,5 @@ GET https://openlibrary.org/search.json?q=harry+potter
 - **`Dockerfile`** – Used for building a containerized version of the app.
 
 ## Deployed Application
-The live version of the application is available here: [Deployed App](#)
+The live version of the application is available here: [Deployed App](https://openlibrary-reactrouter.vercel.app/)
 
